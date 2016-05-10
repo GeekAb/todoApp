@@ -17,7 +17,8 @@
 // (if you're using LESS with the built-in default config, you'll want
 //  to change `assets/styles/importer.less` instead.)
 var cssFilesToInject = [
-  'styles/**/*.css'
+    'bower_components/bootswatch/dist/css/bootstrap.css',
+    'styles/**/*.css'
 ];
 
 
@@ -25,15 +26,21 @@ var cssFilesToInject = [
 // (uses Grunt-style wildcard/glob/splat expressions)
 var jsFilesToInject = [
 
-  // Load sails.io before everything else
-  'js/dependencies/sails.io.js',
+    // Load sails.io before everything else
+    'js/dependencies/sails.io.js',
+    
+    '/bower_components/jquery/dist/jquery.js',
+    '/bower_components/angular/angular.js',
+    '/bower_components/angular-route/angular-route.js',
+    '/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+    '/bower_components/bootstrap/dist/js/boostrap.js',
 
-  // Dependencies like jQuery, or Angular are brought in here
-  'js/dependencies/**/*.js',
+    // Dependencies like jQuery, or Angular are brought in here
+    'js/dependencies/**/*.js',
 
-  // All of the rest of your client-side js files
-  // will be injected here in no particular order.
-  'js/**/*.js'
+    // All of the rest of your client-side js files
+    // will be injected here in no particular order.
+    'js/**/*.js'
 ];
 
 
@@ -50,12 +57,6 @@ var templateFilesToInject = [
   'templates/**/*.html'
 ];
 
-
-
-
-
-
-
 // Default path for public folder (see documentation for more information)
 var tmpPath = '.tmp/public/';
 
@@ -71,5 +72,3 @@ module.exports.jsFilesToInject = jsFilesToInject.map(function(jsPath) {
 module.exports.templateFilesToInject = templateFilesToInject.map(function(tplPath) {
   return require('path').join('assets/',tplPath);
 });
-
-
